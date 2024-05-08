@@ -80,7 +80,7 @@ void keyboard_post_init_user(void) {
 #define RED {0,255,255}
 #define DBLUE {157,255,255}
 
-#define LAYOUT_ergodox_pretty_rgb( \
+#define LED_LAYOUT_ergodox_pretty( \
     k0A,    k1A,    k2A,    k3A,    k4A,        k5A,    k6A,    k7A,    k8A,    k9A, \
     k0B,    k1B,    k2B,    k3B,    k4B,        k5B,    k6B,    k7B,    k8B,    k9B, \
     k0C,    k1C,    k2C,    k3C,    k4C,        k5C,    k6C,    k7C,    k8C,    k9C, \
@@ -102,28 +102,28 @@ void keyboard_post_init_user(void) {
 }
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [L_DEF] = LAYOUT_ergodox_pretty_rgb(
+    [L_DEF] = LED_LAYOUT_ergodox_pretty(
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,                       BLUE,   BLUE,   BLUE,   BLUE
     ),
-    [L_PRG] = LAYOUT_ergodox_pretty_rgb(
+    [L_PRG] = LED_LAYOUT_ergodox_pretty(
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,                       BLUE,   BLUE,   BLUE,   BLUE
     ),
-    [L_FUN] = LAYOUT_ergodox_pretty_rgb(
+    [L_FUN] = LED_LAYOUT_ergodox_pretty(
         RED,    RED,    RED,    RED,    RED,        RED,    RED,    RED,    RED,    RED,
         RED,    RED,    RED,    BLACK,  BLACK,      BLACK,  BLACK,  BLACK,  BLACK,  BLACK,
         RED,    RED,    RED,    BLACK,  BLACK,      BLACK,  BLACK,  BLACK,  BLACK,  BLACK,
         RED,    RED,    BLACK,  BLACK,  BLACK,      BLACK,  BLACK,  BLACK,  BLACK,  BLACK,
         BLACK,  BLACK,  BLACK,  BLACK,                      BLACK,  BLACK,  BLACK,  BLACK
     ),
-    [L_GAM] = LAYOUT_ergodox_pretty_rgb(
+    [L_GAM] = LED_LAYOUT_ergodox_pretty(
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
         BLUE,   BLUE,   BLUE,   BLUE,   BLUE,       BLUE,   BLUE,   BLUE,   BLUE,   BLUE,
@@ -240,16 +240,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true; \
         }
 
-        CUSTOM_SHIFT(KC_LABK, KC_1);
-        CUSTOM_SHIFT(KC_LCBR, KC_2);
-        CUSTOM_SHIFT(KC_LBRC, KC_3);
-        CUSTOM_SHIFT(KC_LPRN, KC_4);
+        CUSTOM_SHIFT(KC_LCBR, KC_1);
+        CUSTOM_SHIFT(KC_RCBR, KC_2);
+        CUSTOM_SHIFT(KC_LABK, KC_3);
+        CUSTOM_SHIFT(KC_RABK, KC_4);
         CUSTOM_SHIFT(KC_ASTR, KC_5);
         CUSTOM_SHIFT(KC_CIRC, KC_6);
-        CUSTOM_SHIFT(KC_RPRN, KC_7);
+        CUSTOM_SHIFT(KC_LBRC, KC_7);
         CUSTOM_SHIFT(KC_RBRC, KC_8);
-        CUSTOM_SHIFT(KC_RCBR, KC_9);
-        CUSTOM_SHIFT(KC_RABK, KC_0);
+        CUSTOM_SHIFT(KC_LPRN, KC_9);
+        CUSTOM_SHIFT(KC_RPRN, KC_0);
 
         CUSTOM_SHIFT(KC_DQUO, KC_QUOT);
         CUSTOM_SHIFT(KC_DOT,  KC_AMPR);
