@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,    KC_F1,      KC_F2,      KC_F3,      KC_F4,                                                                                  KC_DEL,     KC_SLSH,    KC_LEFT,    KC_DOWN,    KC_RGHT,
                                                                                 KC_9,       KC_0,           KC_LBRC,    KC_RBRC,
                                                                                             LGUI(KC_PSCR),  _______,
-                                                                    KC_SPACE,   KC_BSPC,    ST_MAC3,        _______,    _______,    _______
+                                                                    KC_SPACE,   KC_BSPC,    KC_LCTL,        _______,    _______,    _______
     ),
 };
 
@@ -61,11 +61,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM combo0[] = { KC_DOT,  KC_EQUAL, COMBO_END };
 const uint16_t PROGMEM combo1[] = { KC_COMM, KC_EQUAL, COMBO_END };
 const uint16_t PROGMEM combo2[] = { KC_MINS, KC_EQUAL, COMBO_END };
+const uint16_t PROGMEM combo3[] = { KC_O,    KC_8,     COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
         COMBO(combo0, ST_MAC0),
         COMBO(combo1, ST_MAC1),
         COMBO(combo2, ST_MAC2),
+        COMBO(combo3, ST_MAC3),
 };
 
 
@@ -200,7 +202,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         case ST_MAC3: {
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_ENTER));
+                SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_U))) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_KP_0) SS_DELAY(100) SS_TAP(X_ENTER));
             }
             break;
         }
